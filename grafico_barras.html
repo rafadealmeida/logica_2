@@ -13,11 +13,11 @@
 	</canvas>
 
 	<script>
+		
 		var dados2015 = [50,25,20,5];
 		var dados2016 = [65,20,13,2];
 
 		var cores = ["blue",'green','yellow','red'];
-
 
 		function desenhaRetangulo(x,y,largura,altura,cor) {
 			var tela= document.querySelector("canvas")
@@ -42,13 +42,13 @@
 			
 			desenhaTexto(x,y-10,texto);
 
-			var somaDados = 0;
+			var somaAltura = 0;
 
 			for (let i = 0; i < dado.length; i++) {
-				const dado = serie[i];
-				desenhaRetangulo(x,y+somaDados,50,dado,cores[i])
+				var altura = serie[i];
+				desenhaRetangulo(x,y+somaAltura,50,altura,cores[i])
 				
-				somaDados+= dado;
+				somaAltura+= altura;
 			}
 		}
 		

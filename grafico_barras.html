@@ -1,51 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Qual a Fração?</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Graficos com dados.</title>
 </head>
 <body>
-    
-    <canvas width="600" height="400">
-        
-    </canvas>
-    
-    <script>
-        var dados2015 = [50,25,20,5];
-        var dados2016 = [65,20,13,2];
-        
-        var cores = ["blue",'green','yellow','red'];
-    
-        
-        function desenhaRetangulo(x,y,largura,altura,cor) {
-            var tela= document.querySelector("canvas")
-            var pincel = tela.getContext("2d");
-            
-            pincel.fillStyle = cor;
-            pincel.fillRect (x,y,largura,altura);
-            pincel.strokeStyle = "black"
-            pincel.strokeRect(x,y,largura,altura)
-        }
-        
-        function desenhaTexto(texto,x,y) {
-            var tela= document.querySelector("canvas")
-            var pincel = tela.getContext("2d");
-            
-            pincel.font-"15px Georgia";
-            pincel.fillStyle="black";
-            pincel.fillText(texto, x,y);
-        }
-        
-        function desenhaBarra(x,y,dados,cores,texto) {
-            for(posicao=0;posicao<dados2015.length;posicao++){
-                desenhaRetangulo(50,50,50,dados2015[posicao],
-                cores[posicao])
-            }
-        }    
 
-    </script>
+	<canvas width="600" height="400">
+
+	</canvas>
+
+	<script>
+		var dados2015 = [50,25,20,5];
+		var dados2016 = [65,20,13,2];
+
+		var cores = ["blue",'green','yellow','red'];
+
+
+		function desenhaRetangulo(x,y,largura,altura,cor) {
+			var tela= document.querySelector("canvas")
+			var pincel = tela.getContext("2d");
+
+			pincel.fillStyle = cor;
+			pincel.fillRect (x,y,largura,altura);
+			pincel.strokeStyle = "black"
+			pincel.strokeRect(x,y,largura,altura)
+		}
+
+		function desenhaTexto(x,y,texto) {
+			var tela= document.querySelector("canvas")
+			var pincel = tela.getContext("2d");
+
+			pincel.font-"15px Georgia";
+			pincel.fillStyle="black";
+			pincel.fillText(texto, x,y);
+		}
+
+		function desenhaDados(x,y,dado,cores,texto) {
+			
+			desenhaTexto(x,y-10,texto);
+
+			var somaDados = 0;
+
+			for (let i = 0; i < dado.length; i++) {
+				const dado = serie[i];
+				desenhaRetangulo(x,y+somaDados,50,dado,cores[i])
+				
+				somaDados+= dado;
+			}
+		}
+		
+		desenhaDados(50,50,dados2015,cores, "2015")
+
+	</script>
 
 </body>
 </html>

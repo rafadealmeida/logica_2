@@ -24,11 +24,16 @@
             pincel.fill()
         }
 
-        desenhaCirculo(300,200,50,"red")
-        desenhaCirculo(300,100,50,"yellow")
-        desenhaCirculo(300,300,50,"blue")
-        desenhaCirculo(200,200,50,"orange")
-        desenhaCirculo(400,200,50,"black")
+        function desenhaFlor(x,y) {
+            
+            desenhaCirculo(x,y,20,"red")
+            desenhaCirculo(x,y-40,20,"yellow")
+            desenhaCirculo(x,y+40,20,"blue")
+            desenhaCirculo(x-40,y,20,"orange")
+            desenhaCirculo(x+40,y,20,"black")
+        }
+
+        desenhaFlor(400,100)
 
        pincel.fillStyle= "lightgrey"
        pincel.fillRect(0,0,600,400);

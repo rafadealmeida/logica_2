@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pintando com JavaScript</title>
+    <title>Interação com a Tela</title>
 </head>
 <body>
     
@@ -16,16 +16,26 @@
         var tela = document.querySelector("canvas"); 
         var pincel = tela.getContext("2d");
 
-       pincel.fillStyle= "green"
+       pincel.fillStyle= "grey"
        pincel.fillRect(0,0,600,400);
 
-      function exibeAlerta(evento) {
-          alert("Você conseguiu!")
+      function desenhaCirculo(evento) {
+          
+        var x = evento.pageX - tela.offsetLeft; //Considerar o eixo x somente do canvas definido, desconsiderando o que nao for canvas a esquerda.
 
-          console.log(evento)
+        var y =evento.pageY - tela.offsetTop; //Desconsiderar o que não for canvas na parte superior.
+
+        pincel.fillStyle= "red";
+        pincel.beginPath();
+        pincel.arc(x,y,10,0,2*3.14);
+        pincel.fill();
+        
+
+
+          console.log(`Eixo x = ${x} e eixo y = ${y}.`)
       }
         
-        tela.onclick = exibeAlerta;
+        tela.onclick = desenhaCirculo; 
         
     
       

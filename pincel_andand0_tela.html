@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interação com a Tela</title>
+</head>
+<body>
+    
+    <canvas width="600" height="400">
+        
+    </canvas>
+    
+    <script>
+        var tela = document.querySelector("canvas"); 
+        var pincel = tela.getContext("2d");
+        var cores = ["blue","red", "yellow"]
+        var indiceCor = 0;
+        var raio = 10
+
+
+       pincel.fillStyle= "grey"
+       pincel.fillRect(0,0,600,400);
+
+      function desenhaCirculo(evento,cor) {
+          
+        var botaoPressionado = false;
+
+        var x = evento.pageX - tela.offsetLeft;
+
+        var y =evento.pageY - tela.offsetTop;
+        
+        
+        pincel.fillStyle= cores[indiceCor];
+        pincel.beginPath();
+        pincel.arc(x,y,raio,0,2*3.14);
+        pincel.fill();
+
+
+        if(evento.shiftKey && raio +10<= 40 ){
+            raio+=10;
+        } else if(evento.ctrlKey && raio-5 >= 10){
+            raio-= 5;
+        }
+
+
+        console.log(`Eixo x = ${x} e eixo y = ${y}.`)
+      }
+        
+        tela.onclick = desenhaCirculo; 
+        
+        function mudaCor() {
+           
+
+            indiceCor ++;
+            
+            if (indiceCor == cores.length){
+                indiceCor = 0;
+            }
+
+            return false; 
+        }
+    
+        tela.oncontextmenu = mudaCor;
+        
+
+    </script>
+
+</body>
+</html>

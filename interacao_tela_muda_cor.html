@@ -24,13 +24,21 @@
 
       function desenhaCirculo(evento,cor) {
           
-        var x = evento.pageX - tela.offsetLeft; //Considerar o eixo x somente do canvas definido, desconsiderando o que nao for canvas a esquerda.
+        var x = evento.pageX - tela.offsetLeft;
 
-        var y =evento.pageY - tela.offsetTop; //Desconsiderar o que não for canvas na parte superior.
+        var y =evento.pageY - tela.offsetTop; 
+
+        var raio = 10;
+
+        if (evento.shiftKey == false){
+            raio = raio;
+        } else{
+            raio += 20;
+        }
 
         pincel.fillStyle= cores[indiceCor];
         pincel.beginPath();
-        pincel.arc(x,y,10,0,2*3.14);
+        pincel.arc(x,y,raio,0,2*3.14);
         pincel.fill();
     
         console.log(`Eixo x = ${x} e eixo y = ${y}.`)

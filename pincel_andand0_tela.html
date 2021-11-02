@@ -50,9 +50,19 @@
         console.log(`Eixo x = ${x} e eixo y = ${y}.`)
       }
         
-        tela.onmousedown = desenhaCirculo; 
+        tela.onmousemove= desenhaCirculo; 
+
+        function mudaCor() {
+            indiceCor++
+
+            if(indiceCor >= cores.length){
+                indiceCor = 0;
+            }
+
+            return false;
+        }
         
-      
+      tela.oncontextmenu = mudaCor;
 
         function habilitaDesenhar(){
             botaoPressionado =true;

@@ -17,19 +17,23 @@
         var pincel = tela.getContext("2d");
         var cores = ["blue","red", "yellow"]
         var indiceCor = 0;
+        var raio = 30; // com a variavel fora da função ela será acrescentada sem retornar ao seu tamanho inicial
+        
+        
+        pincel.fillStyle= "grey"
+        pincel.fillRect(0,0,600,400);
+        
+        function desenhaCirculo(evento,cor) {
+            
+            var x = evento.pageX - tela.offsetLeft;
+            
+            var y =evento.pageY - tela.offsetTop; 
+            
+            
+            // var raio = 30; Se estiver dentro da função o circulo sempre retornara ao seu tamanho inicial(soma temporária)
+        
 
-
-       pincel.fillStyle= "grey"
-       pincel.fillRect(0,0,600,400);
-
-      function desenhaCirculo(evento,cor) {
-          
-        var x = evento.pageX - tela.offsetLeft;
-
-        var y =evento.pageY - tela.offsetTop; 
-
-        var raio = 30;
-
+        var somaRaio = 0;
         if (evento.shiftKey){
             raio += 20; 
         } 
@@ -37,7 +41,9 @@
         if(evento.ctrlKey){
             raio-=20;
         }
-        
+        if( raio >= 150){ // colocando um limite de tamanho, caso ela chegue ao limite, voltará ao tamanho inicial.
+            raio =10
+        }
 
         pincel.fillStyle= cores[indiceCor];
         pincel.beginPath();

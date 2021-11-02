@@ -35,10 +35,9 @@
         pincel.fill();
 
 
-        if(evento.shiftKey &&raio +10<= 40 ){
+        if(evento.shiftKey && raio +10<= 40 ){
             raio+=10;
-        }
-        if(evento.ctrlKey && raio-5 >= 10){
+        } else if(evento.ctrlKey && raio-5 >= 10){
             raio-= 5;
         }
 

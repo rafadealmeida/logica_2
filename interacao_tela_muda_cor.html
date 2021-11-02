@@ -28,13 +28,16 @@
 
         var y =evento.pageY - tela.offsetTop; 
 
-        var raio = 10;
+        var raio = 30;
 
-        if (evento.shiftKey == false){
-            raio = raio;
-        } else{
-            raio += 20;
+        if (evento.shiftKey){
+            raio += 20; 
+        } 
+        
+        if(evento.ctrlKey){
+            raio-=20;
         }
+        
 
         pincel.fillStyle= cores[indiceCor];
         pincel.beginPath();

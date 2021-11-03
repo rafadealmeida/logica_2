@@ -55,10 +55,18 @@ function desenhaBandeiraAlemanha() {
 }  
 
     function trocaBandeira() {
-        
+        var mostraBrasil = true;
+
+        if(mostraBrasil == true){
+            desenhaBandeiraBrasil();
+            mostraBrasil = false;
+        } else {
+            desenhaBandeiraAlemanha();
+            mostraBrasil = true;
+        }
 
     }
-    setInterval(trocaBandeira,3000)
+    setInterval(trocaBandeira,1000)
     </script>
 
     

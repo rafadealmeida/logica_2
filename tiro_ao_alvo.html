@@ -39,9 +39,7 @@
             var x = evento.pageX - tela.offsetLeft;
             var y = evento.pageY - tela.offsetTop;
 
-            if (x >= 295 && x<=305){
-                alert("Voce acertou!");
-            } else if (y >=195 && y <= 205) {
+            if (x >= 300 - raio && x<=300 + raio && y >=200 - raio && y <= 200 + raio){
                 alert("Voce acertou!");
             } else{
                 alert("Você errou!")

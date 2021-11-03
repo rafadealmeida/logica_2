@@ -43,20 +43,51 @@
         var esquerda = 37;
         var cima = 38;
         var direita = 39;
-        var baixo = 40;
+        var baixo = 40 ;
+        var esquerdaA = 65;
+        var cimaW = 87;
+        var direitaD = 68 ;
+        var baixoS = 83;
+
+        
         
         function leTeclado(evento) {
-            if (evento.keyCode == esquerda){
+            if (evento.keyCode == esquerda || evento.keyCode == esquerdaA  ){
                 x = x - taxa;
-            } else if(evento.keyCode == direita){
+            } else if(evento.keyCode == direita || evento.keyCode == direitaD){
                 x = x + taxa;
             } 
-             else if(evento.keyCode == cima){
+             else if(evento.keyCode == cima ||evento.keyCode == cimaW ){
                 y = y - taxa;
             } 
-            else if(evento.keyCode == baixo){
+            else if(evento.keyCode == baixo || evento.keyCode == baixoS){
                 y = y + taxa;
             } 
+
+            /* Tentativa de diagonal
+            if (evento.keyCode == esquerda || evento.keyCode == esquerdaA && evento.keyCode == cima ||evento.keyCode == cimaW ) {
+                x-=taxa;
+                y-=taxa;
+            } 
+
+            else if (evento.keyCode == esquerda || evento.keyCode == esquerdaA && evento.keyCode == baixo ||evento.keyCode == baixoS ) {
+                x-=taxa;
+                y+=taxa;
+            } 
+            else if (evento.keyCode == direita || evento.keyCode == direitaD && evento.keyCode == cima ||evento.keyCode == cimaW ) {
+                x+=taxa;
+                y-=taxa;
+            } 
+            else if (evento.keyCode == direita || evento.keyCode == direitaD && evento.keyCode == baixo ||evento.keyCode == baixoS ) {
+                x+=taxa;
+                y+=taxa;
+            } */
+
+            if (evento.shiftKey && raio + taxa <=50 ){
+                raio = raio + taxa;
+            }else if ( evento.ctrlKey && raio - taxa >= 10){
+                raio = raio - taxa;
+            }
         }
         
         

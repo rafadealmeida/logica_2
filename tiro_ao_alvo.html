@@ -38,6 +38,15 @@
         function dispara(evento) {
             var x = evento.pageX - tela.offsetLeft;
             var y = evento.pageY - tela.offsetTop;
+
+            if (x >= 295 && x<=305){
+                alert("Voce acertou!");
+            } else if (y >=195 && y <= 205) {
+                alert("Voce acertou!");
+            } else{
+                alert("Você errou!")
+            }
+                console.log( `${x} e ${y}`)
         }
 
         tela.onclick = dispara;

@@ -28,17 +28,24 @@
         }
         
         var x = 20;
+        var sentido = 1
         function animaBolinha() {
             limpaTela();
             desenhaBolinha(x,20,10,)
             x++;
         }
+        
+        function voltaBolinha() {
+            limpaTela();
+            desenhaBolinha(x,20,10,)
+            x--;
+        }
 
         if (x<600){
-            setInterval(animaBolinha,10)
-        } else if (x>600) {
-            x--;
-            setInterval(animaBolinha,10)
+          setInterval(animaBolinha,10)
+        } else if (x=>600) {
+          clearInterval(animaBolinha,10)
+          setInterval(voltaBolinha,10)
         }
         </script>
 </body>

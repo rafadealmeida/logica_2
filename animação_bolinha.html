@@ -35,28 +35,35 @@
 
         var sentido = 1;// esse sentido que definira se o eixo X terá incremento ou decremento.
 
-        var raio = 20
-
+        
         function animaBolinha() {
             limpaTela();
-
+            
             if (x > 590){
                 sentido = -1;
             } else if (x < 10 ){
                 sentido = 1;
             }
-
-            if(raio<=30){
-                raio++;
-            }else if (raio <= 20){
-                raio--;
-            }
-            desenhaBolinha(x,20,raio)
+            
+            desenhaBolinha(x,30,raio)
             x = x + sentido;
             
         }
-   
+        var raio = 20
+        var tamanhoRaio = 1
+        
+        function mudancaTamanho() {
+            if(raio < 20){
+                tamanhoRaio = 1;
+            }else if (raio > 30){
+                tamanhoRaio = -1
+            }
+            raio+=tamanhoRaio
+        }
+
         setInterval(animaBolinha, 20 )
+        setInterval(mudancaTamanho,20)
+
         </script>
 </body>
 </html>

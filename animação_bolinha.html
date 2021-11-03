@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiro ao alvo</title>
+</head>
+<body>  
+    <canvas width="600" height="400"></canvas>
+     
+    <script>
+        var tela = document.querySelector("canvas");
+        var pincel = tela.getContext('2d');
+        
+        //base do canvas
+        pincel.fillStyle = 'lightgrey';
+        pincel.fillRect(0,0,600,400);
+
+        function desenhaBolinha(x,y,raio) {
+            pincel.fillStyle = 'blue';
+            pincel.beginPath();
+            pincel.arc(x,y,raio,0,2*Math.PI);
+            pincel.fill();
+        }
+        function limpaTela() {
+            pincel.clearRect(0,0,600,400);
+        }
+        
+        var x = 20;
+        function animaBolinha() {
+            limpaTela();
+            desenhaBolinha(x,20,10,)
+            x++;
+        }
+
+        if (x<600){
+            setInterval(animaBolinha,10)
+        } else if (x>600) {
+            x--;
+            setInterval(animaBolinha,10)
+        }
+        </script>
+</body>
+</html>

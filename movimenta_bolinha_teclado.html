@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bolinha passando</title>
+</head>
+<body>  
+    <canvas width="600" height="400"></canvas>
+    <!-- usuario escolher a cor da bolinha -->
+    <br> Escolha uma cor  <input  type="color" name="" id="cor"> 
+
+     
+    <script>
+        var tela = document.querySelector("canvas");
+        var pincel = tela.getContext('2d');
+        var corEscolhida = document.querySelector("cor")
+        
+        //base do canvas
+        pincel.fillStyle = 'lightgrey';
+        pincel.fillRect(0,0,600,400);
+
+        function desenhaBolinha(x,y,raio) {
+            pincel.fillStyle = cor.value;// cor escolhida pelo input do usuario.
+            pincel.beginPath();
+            pincel.arc(x,y,raio,0,2*Math.PI);
+            pincel.fill();
+        }
+        function limpaTela() {
+            pincel.clearRect(0,0,600,400);
+        }
+        
+        var x = 20;
+        var y = 20;
+
+        var sentido = 0;// esse sentido que definira se o eixo X terá incremento ou decremento.
+
+        
+        function animaBolinha() {
+            limpaTela();
+            
+            desenhaBolinha(x,y,raio)
+            x = x + sentido;
+            
+        }
+        var raio = 19
+        //var tamanhoRaio = 0
+        
+        /*function mudancaTamanho() {
+            if(raio < 20){
+                tamanhoRaio = 1;
+            }else if (raio > 30){
+                tamanhoRaio = -1
+            }
+            raio+=tamanhoRaio
+        }*/
+
+        //variaveis para identificar teclas, são os KeyCode.
+
+        function leTeclado(evento) {
+            
+        }
+
+        document.onkeydown = leTeclado;
+
+
+        setInterval(animaBolinha, 20 )
+        //setInterval(mudancaTamanho,20)
+
+        </script>
+</body>
+</html>

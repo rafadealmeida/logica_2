@@ -20,7 +20,7 @@
         //base do canvas
         pincel.fillStyle = 'lightgrey';
         pincel.fillRect(0,0,600,400);
-
+        
         function desenhaBolinha(x,y,raio) {
             pincel.fillStyle = cor.value;// cor escolhida pelo input do usuario.
             pincel.beginPath();
@@ -33,16 +33,38 @@
         
         var x = 20;
         var y = 20;
-
+        
         var sentido = 0;// esse sentido que definira se o eixo X terá incremento ou decremento.
+        
+        //taxa de incremento (movimento do teclado)
+        var taxa = 10;
 
+        //variaveis para identificar teclas, são os KeyCode.
+        var esquerda = 37;
+        var cima = 38;
+        var direita = 39;
+        var baixo = 40;
+        
+        function leTeclado(evento) {
+            if (evento.keyCode == esquerda){
+                x = x - taxa;
+            } else if(evento.keyCode == direita){
+                x = x + taxa;
+            } 
+             else if(evento.keyCode == cima){
+                y = y - taxa;
+            } 
+            else if(evento.keyCode == baixo){
+                y = y + taxa;
+            } 
+        }
+        
         
         function animaBolinha() {
             limpaTela();
             
             desenhaBolinha(x,y,raio)
-            x = x + sentido;
-            
+           
         }
         var raio = 20
         //var tamanhoRaio = 0
@@ -56,25 +78,10 @@
             raio+=tamanhoRaio
         }*/
 
-        //variaveis para identificar teclas, são os KeyCode.
-
-        var esquerda = 37;
-        var cima = 38;
-        var direita = 39;
-        var baixo = 40;
-
-        //taxa de incremento (movimento do teclado)
-
-        var taxa = 10;
+        setInterval(animaBolinha, 20 )
         
-        function leTeclado(evento) {
-            
-        }
-
         document.onkeydown = leTeclado;
 
-
-        setInterval(animaBolinha, 20 )
         //setInterval(mudancaTamanho,20)
 
         </script>

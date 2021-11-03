@@ -58,16 +58,24 @@ function desenhaBandeiraAlemanha() {
     
     function trocaBandeira() {
 
-        if(mostraBrasil == true){
+       /* if(mostraBrasil){
             desenhaBandeiraBrasil();
             mostraBrasil = false;
         } else {
             desenhaBandeiraAlemanha();
             mostraBrasil = true;
-        }
+        }*/
 
-    }
-    setInterval(trocaBandeira,1000)
+        //simplificação do codigo
+        if(mostraBrasil){
+            desenhaBandeiraBrasil();
+        } else {
+            desenhaBandeiraAlemanha();
+        }
+        mostraBrasil=!mostraBrasil; // colocamos pra sempre inverter antes de terminar a função,
+
+    } 
+    setInterval(trocaBandeira,3000)
     </script>
 
     

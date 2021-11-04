@@ -63,6 +63,15 @@
             x = evento.pageX - tela.offsetLeft;
             y = evento.pageY - tela.offsetTop ;
              
+            if(x >= 0 && x < 50 && y<50){
+                corAtual= 'red';
+            } 
+            else if (x >= 50 && x < 100 && y<50){
+                corAtual = "green"; 
+            }
+            else if (x >= 100 && x < 150 && y<50){
+                corAtual = "blue"; 
+            }
         }
     
         var tela = document.querySelector('canvas');
@@ -71,7 +80,7 @@
         pincel.fillRect(0, 0, 600, 400);
     
         var desenha = false;
-        var corAtual = 'blue';
+        var corAtual;
         var xVermelho = 0;
         var xVerde  = 50;
         var xAzul = 100;
@@ -79,7 +88,8 @@
         var tamanhoQuadrados = 50;
     
         desenhaPaletaDeCores(); // mostra os quadrados de seleção de cores
-    
+        tela.onclick = escolherCor;
+
         tela.onmousemove = lidaComMovimentoDoMouse;
     
         tela.onmousedown = habilitaDesenhar;

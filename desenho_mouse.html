@@ -33,26 +33,36 @@
             desenhaQuadrado(xAzul, yQuadrados, tamanhoQuadrados, 'blue');
     
         }
-    
+        var x;
+        var y;
+
         function lidaComMovimentoDoMouse(evento) {
     
-            var x = evento.pageX - tela.offsetLeft;
-            var y = evento.pageY - tela.offsetTop;
-    
-            if(desenha) {
-    
+            x = evento.pageX - tela.offsetLeft;
+            y = evento.pageY - tela.offsetTop ;
+            
+            if(desenha && y>50) {
+                
                 desenhaCirculo(x, y, 5, corAtual);
             }
         }
-    
+        
         function habilitaDesenhar() {
-    
-            desenha = true;
+            if( y>50 ){
+                desenha = true;
+            }
         }
-    
+        
         function desabilitaDesenhar() {
-    
+            
             desenha = false;
+        }
+        
+        function escolherCor(evento) {
+    
+            x = evento.pageX - tela.offsetLeft;
+            y = evento.pageY - tela.offsetTop ;
+             
         }
     
         var tela = document.querySelector('canvas');

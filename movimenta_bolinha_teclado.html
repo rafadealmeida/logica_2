@@ -64,6 +64,23 @@
                 y = y + taxa;
             } 
 
+            if (x>600){
+                x = 0;
+            } else if (x < 0){
+                x=600
+            }
+            else if (y > 400 ){
+                y = 0;
+            } else if (y < 0){
+                y = 400
+            }
+ 
+ 
+            console.log( `${x} e ${y}`)
+ 
+ 
+ 
+ 
             /* Tentativa de diagonal
             if (evento.keyCode == esquerda || evento.keyCode == esquerdaA && evento.keyCode == cima ||evento.keyCode == cimaW ) {
                 x-=taxa;
